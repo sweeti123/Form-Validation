@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+    h5{       
+        color:cornflowerblue;
+    }
+    div{
+	     height:850px;
+		 width:510px;
+		 
+		 
+		 background-color:lightgray;
+		 
+		 margin-top:100px;
+		 padding:50px;
+	  }
+      
+    </style>
+</head>
+<body>
+    <div class="container">
+            <h5 >Click here for important points to be noted</h5> <br>
+
+    <div>      
+    <form action=""  onsubmit="return (myfunction())">
+        
+
+        UserName : <input id="uname"  type="text" class="cssid"> (Maximum 35 Characters)
+    <span style="color:red" id="message"></span><br> <br>
+
+        Confrim First Name : <input id="unameC" type="text" class="cssid"> (Maximum 35 Characters)
+        <span style="color:red" id="message1"></span><br><br>
+
+        Middle Name : <input id="mname" type="text" class="cssid"> (Maximum 35 Characters)
+        <span style="color:red" id="message2"></span> <br> <br>
+
+        Confrim Middle Name : <input id="mnameC" type="text" class="cssid"> (Maximum 35 Characters)
+        <span style="color:red" id="message3"></span> <br> <br>
+
+        Last Name : <input id="lname" type="text" class="cssid"> (Maximum 35 Characters)
+        <span style="color:red" id="message4"></span> <br> <br>
+
+        Confrim Last Name : <input id="lnameC" type="text" class="cssid"> (Maximum 35 Characters)
+        <span style="color:red"n id="message5"></span> <br> <br>
+
+        Full Name: <input type="text" id="fname12" disabled class="cssid"><br> <br> 
+
+         Mobile No : <input id="mno" type="text" class="cssid"> (10 digits) <br> <br>
+        Confrim Mobile No : <input id="mnoC" type="text" class="cssid"> (10 digits) <br> <br> <br>
+        Alternative Mobile No : <input id="mnoA" type="text" class="cssid"> (10 digits) <br> <br>
+        Email id : <input id="email" type="text" class="cssid"> (Maximum 60 character) <br> <br>
+        confrim Email id: <input id="emailC" type="text" class="cssid"> (Maximum 60 character) <br>
+    
+        <button>save & Next</button>
+
+
+    </form>
+</div>
+ 
+
+    <script>
+     function myfunction() {
+        let uname1=document.getElementById("uname").value;
+        if (uname1=="") {
+           document.getElementById("message").innerHTML=" * plz enter a  first name"
+           //alert("Plz enter 1st Name");
+            document.getElementById("uname").focus();
+            return false;
+             
+         }
+         let uname2=document.getElementById("unameC").value;
+        if (uname2=="") {
+            document.getElementById("message1").innerHTML=" * plz enter confrim first name"
+           //alert("Plz enter confirm 1st Name");
+            document.getElementById("unameC").focus();
+            return false;
+             
+         }
+         if (uname1 !=uname2) {
+            document.getElementById("message1").innerHTML=" * plz enter a same  name"
+           //alert("Plz enter same first Name");
+            document.getElementById("uname").focus();
+            return false;
+                    }
+
+
+         let uname3=document.getElementById("mname").value;
+        if (uname3=="") {
+            document.getElementById("message2").innerHTML=" * plz enter a middel  name"
+           // alert("Plz enter middel Name");
+            document.getElementById("mname").focus();
+            return false;
+             
+         }
+         let uname4=document.getElementById("mnameC").value;
+        if (uname4=="") {
+            document.getElementById("message3").innerHTML=" * plz enter a confrim middel  name"
+           // alert("Plz enter confirm middel Name");
+            document.getElementById("mnameC").focus();
+            return false;
+             
+         }
+         if (uname3 !=uname4) {
+            document.getElementById("message3").innerHTML=" * plz enter a same  name"
+          // alert("Plz enter same middel Name");
+            document.getElementById("mname").focus();
+            return false;
+             
+         }
+
+
+         let uname5=document.getElementById("lname").value;
+        if (uname5=="") {
+            document.getElementById("message4").innerHTML=" * plz enter a last  name"
+           // alert("Plz enter last Name");
+            document.getElementById("lname").focus();
+            return false;
+             
+         }
+         let uname6=document.getElementById("lnameC").value;
+        if (uname6=="") {
+            document.getElementById("message5").innerHTML=" * plz enter a confrim last  name"
+            //("Plz enter confirm last Name");
+            document.getElementById("lnameC").focus();
+            return false;
+             
+         }
+         if (uname5 !=uname6) {
+            document.getElementById("message5").innerHTML=" * plz enter a same  name"
+           // alert("Plz enter same last Name");
+            document.getElementById("lname").focus();
+            return false;
+            //document.getElementById("fname12").value="mohan";
+         }
+        
+        
+
+         let numberA=document.getElementById("mno").value
+         x=numberA.toString().split("")[0];
+        
+    
+         
+         if (numberA=NaN||numberA.length!=10|| x==0 ) {
+             
+        alert("plz enter 10 digit mobile no")
+         //document.getElementById("message").innerHTML="plz enter a same  last name"
+            document.getElementById("mno").focus();
+            return false;
+        }
+
+        let number1=document.getElementById("mnoC").value
+         if (number1=NaN||number1.length!=10) {
+             
+        alert("plz enter confrim 10 digit mobile no")
+         //document.getElementById("message").innerHTML="plz enter a same  last name"
+            document.getElementById("mnoC").focus();
+            return false;
+        }
+
+        let number2=document.getElementById("mnoA").value
+         if (numbe2=NaN||number2.length!=10) {
+             
+        alert("plz enter alternative  10 digit mobile no")
+         //document.getElementById("message").innerHTML="plz enter a same  last name"
+            document.getElementById("mnoA").focus();
+            return false;
+        }
+
+        let email1=document.getElementById("email").value
+        a1=email1.indexOf("@")
+        a2=email1.indexOf(".")
+        if (a1=a2<3) {
+            alert("plz enter valid email")
+            document.getElementById("email").focus();
+            return false;
+            
+        }
+
+        let email2=document.getElementById("emailC").value
+        a3=email2.indexOf("@")
+        a4=email2.indexOf(".")
+        if (a3=a4<3) {
+            alert("plz enter confrim valid email")
+            document.getElementById("emailC").focus();
+            return false;
+            
+        }
+
+        
+
+
+
+         
+     }
+    </script>
+</body>
+</html>
