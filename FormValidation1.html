@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" onsubmit="return (myFunction())">
+            <h2 style="color:rgb(27, 7, 206)">Form Validations</h2>
+            UserName : <input onkeypress="onkey1()" id="uname" type="text">
+            <span style="color:red" id="message1"></span><br><br>
+
+            Confrim UserName : <input id="unameC" type="text">
+            <span style="color:red" id="message2"></span><br><br>
+
+            Password : <input id="pass" type="password">
+            <span style="color:red" id="message3"></span><br><br>
+
+            Confrim Pasword : <input id="passC" type="password">
+            <span style="color:red" id="message4"></span><br><br>
+
+            FirstName : <input onkeyup="fun23()" id="fname" type="text"> (Maximum 35 Characters)
+            <span style="color:red" id="message5"></span><br> <br>
+        
+                Confrim First Name : <input id="fnameC" type="text"> (Maximum 35 Characters)
+                <span style="color:red" id="message6"></span><br><br>
+        
+                Middle Name : <input onkeyup="fun23()" id="mname" type="text"> (Maximum 35 Characters)
+                <span style="color:red" id="message7"></span> <br> <br>
+        
+                Confrim Middle Name : <input id="mnameC" type="text"> (Maximum 35 Characters)
+                <span style="color:red" id="message8"></span> <br> <br>
+        
+                Last Name : <input onkeyup="fun23()" id="lname" type="text"> (Maximum 35 Characters)
+                <span style="color:red" id="message9"></span> <br> <br>
+        
+                Confrim Last Name : <input id="lnameC" type="text"> (Maximum 35 Characters)
+                <span style="color:red"n id="message10"></span> <br> <br>
+        
+                Full Name: <input type="text" id="fname12" disabled><br> <br> 
+         
+
+            Email Id : <input id="email" type="text">
+            <span style="color:red" id="message11"></span><br><br>
+
+            Mobile No : <input id="mobile" type="text">
+            <span style="color:red" id="message12"></span><br><br>
+
+           Alternative   Mobile No : <input id="mobileA" type="text">
+            <span style="color:red" id="message13"></span><br><br>
+
+            Country  : <select id="country" name="" id="">
+                <option value="choose">--Choose country--</option>
+                <option value="india">India</option>
+                <option value="japan">Japan</option>
+                <option value="england">England</option>
+                </select>
+                <span style="color:red" id="message14"></span><br><br>
+            <button>submit</button>
+           
+       
+    </form>
+    
+    <script>
+        function fun23(){
+           
+            var str1 = document.getElementById("fname").value;
+            var str2 = document.getElementById("mname").value;
+            var str3=document.getElementById("lname").value;
+            var res = str1.concat(" ",str2," ",str3);
+            document.getElementById("fname12").value = res;
+        }
+
+
+        function onkey1(){
+      //console.log("hiiiiiiiiii.........");
+       document.getElementById("message1").style.display="none";
+      //document.getElementById("uname").focus();
+}
+
+     function myFunction(){
+        //  let uname1=document.getElementById("uname").value;
+        //  if (uname1=="") {
+        //     // alert("plz fiil the name")
+        //      //document.getElementById("message1").innerHTML=" * plz fill UserName";
+        //      document.getElementById("message1").innerHTML=" * plz fill username"
+        //      document,getElementById("uname").focus();
+        //      return false;
+
+        let correct_way = /^[A-Za-z]+$/;  
+        let name1=document.getElementById("uname").value;
+        if (name1=="") {
+            document.getElementById("message1").innerHTML=" * plz fill username"
+            document.getElementById("uname").focus();
+            return false;
+         }
+         if (name1.length<3) {
+            document.getElementById("message1").innerHTML=" * username should be 3 character"
+            document.getElementById("uname").focus();
+            return false;
+         }
+         if (name1.length>20) {
+            document.getElementById("message1").innerHTML=" * username must be less than 20 char"
+            document.getElementById("uname").focus();
+            return false;
+         }
+         if (name1.match(correct_way)) {
+             true;
+         }
+         else{
+            document.getElementById("message1").innerHTML=" * only alphabets are allowed"
+            document.getElementById("uname").focus();
+            return false;
+         }
+
+         let name2=document.getElementById("unameC").value;
+         if(name2==""){
+             document.getElementById("message2").innerHTML= " * Plz fill confrim username"
+             document.getElementById("unameC").focus();
+             return false;
+         }
+         if (name1 !=name2) {
+            document.getElementById("message2").innerHTML=" * plz enter confrim username"
+           //alert("Plz enter same first Name");
+            document.getElementById("unameC").focus();
+            return false;
+                    }
+
+         let pass1=document.getElementById("pass").value;
+         if(pass1==""){
+             document.getElementById("message3").innerHTML= " * Plz fill password"
+             document.getElementById("pass").focus();
+             return false;
+         }
+         if(pass1.length<5){
+             document.getElementById("message3").innerHTML= " * password length must be greater then 5"
+             document.getElementById("pass").focus();
+             return false;
+         }
+         if(pass1.length>15){
+             document.getElementById("message3").innerHTML= " * password length must be less then 15"
+             document.getElementById("pass").focus();
+             return false;
+         }
+
+         let pass2=document.getElementById("passC").value;
+         if(pass2==""){
+             document.getElementById("message4").innerHTML= " * Plz fill password"
+             document.getElementById("passC").focus();
+             return false;
+         }
+         if(pass1 !=pass2){
+             document.getElementById("message4").innerHTML= " * password are not same"
+             document.getElementById("passC").focus();
+             return false;
+         }
+
+        let fname1=document.getElementById("fname").value
+        if (fname1=="") {
+            document.getElementById("message5").innerHTML= " * plz fill first name"
+             document.getElementById("fname").focus();
+             return false;
+        }
+             let fname2=document.getElementById("fnameC").value
+        if (fname2=="") {
+            document.getElementById("message6").innerHTML= " * plz fill confrim first name"
+             document.getElementById("fnameC").focus();
+             return false;
+        }
+        if (fname1 !=fname2) {
+            document.getElementById("message6").innerHTML= " * plz fill first same  name"
+             document.getElementById("fnameC").focus();
+             return false;
+        }
+
+        let mname1=document.getElementById("mname").value
+        if (mname1=="") {
+            document.getElementById("message7").innerHTML= " * plz fill middle name"
+             document.getElementById("mname").focus();
+             return false;
+        }
+        let mname2=document.getElementById("mnameC").value
+        if (mname2=="") {
+            document.getElementById("message8").innerHTML= " * plz fill confrim middle name"
+             document.getElementById("mnameC").focus();
+             return false;
+        }
+        if (mname1 !=mname2) {
+            document.getElementById("message8").innerHTML= " * plz fill same middle name"
+             document.getElementById("mnameC").focus();
+             return false;
+        }
+        
+        let lname1=document.getElementById("lname").value
+        if (lname1=="") {
+            document.getElementById("message9").innerHTML= " * plz fill last name"
+             document.getElementById("lname").focus();
+             return false;
+        }
+        
+        let lname2=document.getElementById("lnameC").value
+        if (lname2=="") {
+            document.getElementById("message10").innerHTML= " * plz fill confrim last name"
+             document.getElementById("lnameC").focus();
+             return false;
+        }
+        if (lname1 !=lname2) {
+            document.getElementById("message10").innerHTML= " * plz fill same last name"
+             document.getElementById("lnameC").focus();
+             return false;
+        }
+        
+         
+         let email1=document.getElementById("email").value;
+         value1=email1.indexOf("@");
+         value2=email1.indexOf(".");
+         if (value1=value2<3) {
+             document.getElementById("message11").innerHTML=" * plz fill valid email id"
+             document.getElementById("email").focus();
+             return false;
+
+         }
+
+        //  let mobileno=document.getElementById("mobile").innerHTML=value
+        //  if (mobileno==NaN||mobileno.length!=10) {
+        //        document.getElementById("message6").innerHTML=" * plz fill mobile no "
+        //      document.getElementById("mobile").focus();
+        //      return false;
+             
+        //  }
+
+         let number1=document.getElementById("mobile").value
+         if (number1=="") {
+         document.getElementById("message12").innerHTML="plz fill a Mobile Number"
+            document.getElementById("mobile").focus();
+            return false;
+        }
+        if (isNaN (number1)) {
+         document.getElementById("message12").innerHTML="enter only Numeric value"
+            document.getElementById("mobile").focus();
+            return false;
+        }
+          if (number1.length<10) {
+            document.getElementById("message12").innerHTML="Mobile number must be 10 digit"
+            document.getElementById("mobile").focus();
+            return false; 
+          }  
+          if (number1.length>10) {
+            document.getElementById("message12").innerHTML="Mobile number must be 10 digit"
+            document.getElementById("mobile").focus();
+            return false; 
+          } 
+          if ((number1.charAt(0)!=9) && (number1.charAt(0)!=8) && (number1.charAt(0)!=7) ) {
+            document.getElementById("message12").innerHTML="Mobile number must start with 9,8,7"
+            document.getElementById("mobile").focus();
+            return false; 
+          } 
+                 
+       
+        let number2=document.getElementById("mobileA").value
+         if (numbe2=NaN||number2.length!=10) {
+         document.getElementById("message13").innerHTML="plz enter a Alternative mobile no"
+            document.getElementById("mobileA").focus();
+            return false;
+        }
+       
+
+        let country1=document.getElementById("country").value
+        if (country1=="") {
+            document.getElementById("message14").innerHTML="plz select a country"
+            document.getElementById("country").focus();
+            return false;
+
+            
+        }
+     }
+    </script>
+
+</body>
+</html>
